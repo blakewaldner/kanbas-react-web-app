@@ -3,85 +3,159 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="../../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../vendors/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="../index.css" rel="stylesheet" />
     <title>Edit Profile</title>
 </head>
 
 <body>
-    <table>
-        <td valign="top">
-            <ul>
-                <li><a href="index.html">Account</a></li>
-                <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
-                <li><a href="../home.html">Courses</a></li>
-                <li><a href="#">Calendar</a></li>
-                <li><a href="#">Inbox</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Studio</a></li>
-                <li><a href="#">Commons</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-        </td>
-        <td valign="top">
-            <ul>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="index.html">Profile</a></li>
-                <li><a href="#">Files</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">ePortfolios</a></li>
-                <li><a href="#">Shared Content</a></li>
-                <li><a href="#">The Hub</a></li>
-                <li><a href="#">Qwickly Course Tools</a></li>
-                <li><a href="#">Global Announcements</a></li>
-            </ul>
-        </td>
-        <td valign="top">
-            <h2>Jose Annunziato</h2>
+    <!-- Sidebar -->
+    <div class="list-group sidebar" style="float: left; margin: 8px;">
+        <a class="list-group-item sidebar-not-selected icon-spacing">
+            <img src="https://i.imgur.com/RrNwVfI.png" height="50px" width="50px" />
+        </a>
+        <a href="../profile/index.html" class="list-group-item sidebar-selected icon-spacing">
+            <i class="fa fa-user-circle grey-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Account</div>
+        </a>
+        <a href="../dashboard/dashboard.html" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-tachometer-alt red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Dashboard</div>
+        </a>
+        <a href="../courses/home.html" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-book red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Courses</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-calendar red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Calendar</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-clock red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">History</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-tv red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Studio</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-chevron-circle-right red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Commons</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-question-circle red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Help</div>
+        </a>
+    </div>
+    <!-- Sidebar end-->
+
+    <!-- Account Sidebar -->
+    <div class="list-group" style="width: 190px; text-align: left; float: left">
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Notifications</div>
+        </a>
+        <a href="#" class="list-group-item navigation-selected">
+            <div class="text-selected">Profile</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Files</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Settings</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>ePortfolios</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Shared Content</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>The Hub</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Quickly Course Tools</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Global Announcements</div>
+        </a>
+    </div>
+    <!-- Account Sidebar end -->
+    <div style="float: left; margin: 8px;">
+        <h4>Jose Annuziato's Profile</h4>
+        <hr />
+        <i class="fa fa-user-circle" style=" font-size: 150px;"></i>
+        <a href="index.html">
+            <button class="float-end"> <i class="btn fa fa-pencil-alt reverse"></i>Cancel Editing</button>
+        </a>
+        <div style="margin: 8px;">
             <label for="text-name">
-                Name:*
+                <h6>Name:*</h6>
             </label>
-            <input type="text" id="text-name" value="Jose Annunziato" />
-            <label for="select-pronouns">
-                Pronouns:
+            <input type="text" id="text-name" value="Jose Annunziato" class="form-control" />
+            
+            <label for="select-pronouns" class="mt-2">
+                <h6>Pronouns:</h6>
             </label>
-            <select id="select-pronouns">
-                <option> None</option>
-            </select> <br/>
-            <label for="text-title">
-                Title:
+            <select id="select-pronouns" class="form-control">
+                <option>None</option>
+                <option>He/him</option>
+                <option>She/her</option>
+                <option>They/them</option>
+            </select>
+        
+            <label for="text-title" class="mt-2">
+                <h6>Title:</h6>
             </label>
-            <input type="text" id="text-title" />
-            <h3>Contact</h3>
-            No registerd services, you can add some on the <a href=#>settings</a> page.
-            <h3>Biography</h3>
-                Faculty, Software Engineer, AI, Space, and renewables enthusiast. <br/>
-                <textarea rows="4" cols="50">Faculty, Software Engineer, AI, Space, and renewables enthusiast.
-                </textarea>
-            <h3>Links</h3>
-            <ul>
-                <li><a href=https://youtube.com>YouTube</a> Links to an external site.</li>
-            </ul>
-            <h3 for="text-link-title">
-                Title
-            </h3>
-            <input type="text" id="text-link-title" value="YouTube" />
-            <h3 for="text-link-url">
-                URL
-            </h3>
-            <input type="text" id="text-link-url" value="https://youtube.com/" /> <br/>
-            <a href="#">Remove</a>
-            <button> Add another Link</button> <br/>
-            <a href="index.html">
-                <button> Cancel</button>
-            </a>
-            <a href="index.html">
-                <button> Save Profile</button> <br/>
-            </a>
-            <a href="index.html">
-                <button> Edit Profile</button>
-            </a>
-            <a href="index.html">
-                <button> Cancel Editing</button> <br/>
-            </a>
-        </td>
-    </table>
+            <input type="text" id="text-title" class="form-control" />
+        </div>
+        
+
+        <h3>Contact</h3>
+        No registered services, you can add some on the <a href=#>settings</a> page.
+        <h3>Biography</h3>
+        <textarea class="form-control" rows="4" style="display:block; width:100%;">Faculty, Software Engineer, AI, Space, and renewables enthusiast.
+        </textarea>
+        <h3>Links</h3>
+
+        <div class="container-fluid p-3">
+            <div class="row mb-2">
+                <div class="col text-center">
+                    <h4>Title</h4>
+                </div>
+                <div class="col text-center">
+                    <h4>URL</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" value="YouTube">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" value="https://www.youtube.com">
+                </div>
+            </div>
+        </div>
+
+
+        <br />
+
+        <button type="submit" class="btn" style="background-color: lightgray;">
+            Add another link
+        </button>
+        <hr />
+
+        <a href="index.html">
+            <button type="submit" class="btn float-end" style="background-color: red; color: white; margin-left: 8px">
+                Save Profile
+            </button>
+        </a>
+
+        <a href="index.html">
+            <button type="submit" class="btn float-end" style="background-color: lightgray;">
+                Cancel
+            </button>
+        </a>
+
+    </div>
 </body>

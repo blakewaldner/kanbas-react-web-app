@@ -3,136 +3,265 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Assignments</title>
-    <style>
-        .container {
-            display: flex;
-            align-items: center;
-        }
-    </style>
+    <link href="../../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../vendors/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="../index.css" rel="stylesheet" />
+    <title>Assigments</title>
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td valign="top">
-                <ul>
-                    <li><a href="../profile/index.html">Account</a></li>
-                    <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
-                    <li><a href="../home.html">Courses</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Inbox</a></li>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Studio</a></li>
-                    <li><a href="#">Commons</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-            </td>
-            <td valign="top">
-                <ul>
-                    <li><a href="../home.html">Home</a></li>
-                    <li><a href="#">Modules</a></li>
-                    <li><a href="#">Piazza</a></li>
-                    <li><a href="#">Zoom Meetings</a></li>
-                    <li><a href="../assignments/index.html">Assignments</a></li>
-                    <li><a href="#">Quizzes</a></li>
-                    <li><a href="../grades.html">Grades</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Panopto Video</a></li>
-                    <li><a href="#">Discussions</a></li>
-                    <li><a href="#">Announcements</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Files</a></li>
-                    <li><a href="#">Rubrics</a></li>
-                    <li><a href="#">Outcomes</a></li>
-                    <li><a href="#">Collaborations</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="#">Settings</a></li>
-                </ul>
-            </td>
-            <td valign="top">
-                <input type="text" placeholder="Search for Assignment" id="text-fields-student-names" />
-                <button>Group</button>
-                <button>Assignment</button>
-                <select>
-                    <option>Edit Assignment Dates</option>
-                </select>
-                <hr />
-                <div class="container">
-                    <h2>ASSIGNMENTS 40% of Total</h2>
-                    <select>
-                        <option>Edit</option>
-                        <option>Speed Grader</option>
-                        <option>Duplicate</option>
-                        <option>Delete</option>
-                        <option>Move To...</option>
-                        <option>Send To...</option>
-                        <option>Copy To...</option>
-                        <option>Share to Commons</option>
-                    </select>
+    <!-- Sidebar -->
+    <div class="list-group sidebar" style="float: left; margin: 8px;">
+        <a class="list-group-item sidebar-not-selected icon-spacing">
+            <img src="https://i.imgur.com/RrNwVfI.png" height="50px" width="50px" />
+        </a>
+        <a href="../profile/index.html" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-user-circle" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Account</div>
+        </a>
+        <a href="../dashboard/dashboard.html" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-tachometer-alt red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Dashboard</div>
+        </a>
+        <a href="../courses/home.html" class="list-group-item sidebar-selected icon-spacing">
+            <i class="fa fa-book red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Courses</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-calendar red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Calendar</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-clock red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">History</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-tv red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Studio</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-chevron-circle-right red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Commons</div>
+        </a>
+        <a href="#" class="list-group-item sidebar-not-selected icon-spacing">
+            <i class="fa fa-question-circle red-icon" style="font-size: 40px;"></i><br />
+            <div style="font-size: 12px;">Help</div>
+        </a>
+    </div>
+    <!-- Sidebar end-->
+
+    <!-- Account Sidebar -->
+    <div class="list-group" style="width: 190px; text-align: left; float: left">
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Home</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Modules</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Piazza</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Zoom Meetings</div>
+        </a>
+        <a href="../assignments/index.html" class="list-group-item navigation-selected">
+            <div class="text-selected">Assignments</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Quizzes</div>
+        </a>
+        <a href="../grades.html" class="list-group-item navigation-not-selected">
+            <div>Grades</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>People</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Panopto Video</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Discussions</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Announcements</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Pages</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Files</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Rubrics</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Outcomes</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Collaborations</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Syllabus</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Progress Reports (EAB Navigate)</div>
+        </a>
+        <a href="#" class="list-group-item navigation-not-selected">
+            <div>Settings</div>
+        </a>
+    </div>
+    <!-- Account Sidebar end -->
+
+    <div style="float: left; margin: 8px; width: 1500px;">
+        <h4>
+            <div class="breadcrumb">
+                <div class="breadcrumb-item">
+                    <a href="#" class="no-underline">CS4550.12631.202410</a>
                 </div>
-                <ul>
-                    <li><a href="../assignments/edit.html">A1 - ENV + HTML<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">A2 - CSS + BOOSTRAP<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">A3 - JS + REACT<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">A4 - STATE + REDUX<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">A5 - NODE + SESSION<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">A6 - MONGO + MONGOOSE<br />Multiple Modules</a> | Not available yet</li>
-                </ul>
-                <div class="container">
-                    <h2>QUIZZES 10% of Total</h2>
-                    <select>
-                        <option>Edit</option>
-                        <option>Speed Grader</option>
-                        <option>Duplicate</option>
-                        <option>Delete</option>
-                        <option>Move To...</option>
-                        <option>Send To...</option>
-                        <option>Copy To...</option>
-                        <option>Share to Commons</option>
-                    </select>
+                <div class="breadcrumb-item active">Assignments</div>
+            </div>
+        </h4>
+
+        <hr />
+        <div></div>
+        <input type="text" class="form-control float-start" placeholder="Search for Assignment"
+            style="max-width: 250px; width: 100%">
+        <button type="button" class="btn btn-light float-end">
+            <i class="fa fa-ellipsis-v"></i>
+        </button>
+        <button type="button" class="btn btn-danger float-end button-spacing">
+            <i class="fa fa-plus"></i>
+            Assignment
+        </button>
+        <button type="button" class="btn btn-light float-end button-spacing">
+            <i class="fa fa-plus"></i>
+            Group
+        </button>
+
+        </br>
+        </br>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary course-spacing">
+                <div style="font-weight: bold; font-size: 20px">
+                    Assignments
+                    <i class="fa fa-ellipsis-v float-end ms-3"></i>
+                    <i class="fa fa-plus grey-icon float-end ms-3"></i>
+                    <i class="fa fa-check-circle green-icon float-end ms-3"></i>
                 </div>
-                <ul>
-                    <li><a href="../assignments/edit.html">Q1 - HTML<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">Q2 - CSS<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">Q3 - JS, ES6<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">Q4 - NODE<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">Q5 - MONGO<br />Multiple Modules</a> | Not available yet</li>
-                </ul>
-                <div class="container">
-                    <h2>EXAMS 20% of Total</h2>
-                    <select>
-                        <option>Edit</option>
-                        <option>Speed Grader</option>
-                        <option>Duplicate</option>
-                        <option>Delete</option>
-                        <option>Move To...</option>
-                        <option>Send To...</option>
-                        <option>Copy To...</option>
-                        <option>Share to Commons</option>
-                    </select>
+            </li>
+            <li class="list-group-item course-spacing green-border">
+                <i class="fa fa-edit float-start green-icon me-3" style="font-size: 25px"></i>
+                <div class="ms-5">
+                    <i class="fa fa-ellipsis-v float-end ms-3"></i>
+                    <i class="fa fa-check-circle green-icon float-end ms-3"></i>
+                    <h5>
+                        <a href="../assignments/edit.html" class="no-underline-gray">
+                            A1 SETUP
+                        </a>
+                    </h5>
+                    <div>
+                        Week 0 - SETUP - Week starting on Monday September 5th
+                    </div>
+                    <div>
+                        <strong>Due</strong> Sep 18, 2022 at 11:59pm | 100 pts
+                    </div>
                 </div>
-                <ul>
-                    <li><a href="../assignments/edit.html">Midterm<br />Multiple Modules</a> | Not available yet</li>
-                    <li><a href="../assignments/edit.html">Final<br />Multiple Modules</a> | Not available yet</li>
-                </ul>
-                <div class="container">
-                    <h2>PROJECT 30% of Total</h2>
-                    <select>
-                        <option>Edit</option>
-                        <option>Speed Grader</option>
-                        <option>Duplicate</option>
-                        <option>Delete</option>
-                        <option>Move To...</option>
-                        <option>Send To...</option>
-                        <option>Copy To...</option>
-                        <option>Share to Commons</option>
-                    </select>
+                
+                
+            </li>
+            <li class="list-group-item course-spacing green-border">
+                <i class="fa fa-edit float-start green-icon me-3" style="font-size: 25px"></i>
+                <div class="ms-5">
+                    <i class="fa fa-ellipsis-v float-end ms-3"></i>
+                    <i class="fa fa-check-circle green-icon float-end ms-3"></i>
+                    <h5>
+                        <a href="../assignments/edit.html" class="no-underline-gray">
+                            A2 HTML
+                        </a>
+                    </h5>
+                    <div>
+                        Week 1 - HTML - Week starting on Monday September 12th
+                    </div>
+                    <div>
+                        <strong>Due</strong> Sep 25, 2022 at 11:59pm | 100 pts
+                    </div>
                 </div>
-                <ul>
-                    <li><a href="../assignments/edit.html">Project<br />Multiple Modules</a> | Not available yet</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
+            </li>
+            <li class="list-group-item course-spacing green-border">
+                <i class="fa fa-edit float-start green-icon me-3" style="font-size: 25px"></i>
+                <div class="ms-5">
+                    <i class="fa fa-ellipsis-v float-end ms-3"></i>
+                    <i class="fa fa-check-circle green-icon float-end ms-3"></i>
+                    <h5>
+                        <a href="../assignments/edit.html" class="no-underline-gray">
+                            A3 CSS
+                        </a>
+                    </h5>
+                    <div>
+                        Week 2 - CSS - Week starting on Monday September 19th
+                    </div>
+                    <div>
+                        <strong>Due</strong> Oct 2, 2022 at 11:59pm | 100 pts
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item course-spacing green-border">
+                <i class="fa fa-edit float-start green-icon me-3" style="font-size: 25px"></i>
+                <div class="ms-5">
+                    <i class="fa fa-ellipsis-v float-end ms-3"></i>
+                    <i class="fa fa-check-circle green-icon float-end ms-3"></i>
+                    <h5>
+                        <a href="../assignments/edit.html" class="no-underline-gray">
+                            A4 BOOTSTRAP
+                        </a>
+                    </h5>
+                    <div>
+                        Week 3 - Bootstrap - Week starting on Monday September 26th
+                    </div>
+                    <div>
+                        <strong>Due</strong> Oct 10, 2022 at 11:59pm | 100 pts
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item course-spacing green-border">
+                <i class="fa fa-edit float-start green-icon me-3" style="font-size: 25px"></i>
+                <div class="ms-5">
+                    <i class="fa fa-ellipsis-v float-end ms-3"></i>
+                    <i class="fa fa-check-circle green-icon float-end ms-3"></i>
+                    <h5>
+                        <a href="../assignments/edit.html" class="no-underline-gray">
+                            A5 JAVASCRIPT
+                        </a>
+                    </h5>
+                    <div>
+                        Week 4 - JavaScript - Week starting on Monday October 3rd
+                    </div>
+                    <div>
+                        <strong>Due</strong> Oct 16, 2022 at 11:59pm | 100 pts
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item course-spacing green-border">
+                <i class="fa fa-edit float-start green-icon me-3" style="font-size: 25px"></i>
+                <div class="ms-5">
+                    <i class="fa fa-ellipsis-v float-end ms-3"></i>
+                    <i class="fa fa-check-circle green-icon float-end ms-3"></i>
+                    <h5>
+                        <a href="../assignments/edit.html" class="no-underline-gray">
+                            A6 REACT
+                        </a>
+                    </h5>
+                    <div>
+                        Week 5 - React & Routing - Week starting on Monday October 10rd
+                    </div>
+                    <div>
+                        <strong>Due</strong> Oct 23, 2022 at 11:59pm | 100 pts
+                    </div>
+                </div>
+            </li>
+        </ul>   
+    </div>
+
 </body>
+
+</html>
