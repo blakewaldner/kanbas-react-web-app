@@ -1,0 +1,27 @@
+.button-spacing {
+    margin-left: 5px
+}
+.course-spacing {
+    margin: 10px;
+}
+.module-list {
+    width: 95%;
+}
+.half-width {
+    width: 50%;
+}
+.green-icon {
+    color: green
+}
+.green-large-icon {
+    color: green;
+    font-size: 25px;
+}
+.bold-font {
+    font-weight: bold; 
+    font-size: 20px
+}
+.green-border {
+    border-left: 5px solid green  !important;
+    height: 75px;
+}

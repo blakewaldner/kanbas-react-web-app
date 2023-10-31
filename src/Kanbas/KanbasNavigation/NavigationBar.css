@@ -1,0 +1,50 @@
+.red-icon {
+    color: red;
+}
+
+.grey-icon {
+    color: grey
+}
+.sidebar-selected {
+    background-color: white;
+    color: red;
+}
+.sidebar-selected div {
+    color: red;
+}
+
+.sidebar-not-selected {
+    background-color: black;
+    color: white;
+}
+.sidebar a {
+    border: none;
+    text-decoration: none; 
+    width: 75px;
+    text-align: center;
+    color: white;
+    
+}
+
+.input-sizing {
+    max-width: 250px; 
+    width: 100%
+}
+.sidebar {
+    text-decoration: none; 
+    width: 85px;
+    text-align: center;
+    background-color: black;
+    
+}
+.list-group-item {
+    border: none;
+}
+.list-group-item.sidebar-not-selected {
+    background-color: black;
+    border: none;
+}
+.icon-spacing {
+    padding: 5px;
+    margin: 5px;
+}

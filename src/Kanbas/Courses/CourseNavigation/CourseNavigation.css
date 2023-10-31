@@ -1,0 +1,41 @@
+.course-nav-item {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: red;
+  position: relative;
+  width: 40%;
+  border: none;
+}
+.breadcrumb-link {
+  text-decoration: none;
+  color: red; 
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">" !important;
+  padding: 0 5px;
+}
+.course-nav-item:hover {
+  color: blue;
+}
+.no-underline-gray {
+  text-decoration: none;
+  color: #312f2f
+}
+.course-nav-item.selected {
+  color: red;
+}
+
+.course-nav-item.selected:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: black;
+}
+
+.link-text {
+  padding-left: 10px;
+}
