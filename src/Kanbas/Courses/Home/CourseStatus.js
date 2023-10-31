@@ -1,7 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faFile
+    faFile,
+    faSignOutAlt,
+    faPodcast,
+    faChartBar,
+    faBullhorn,
+    faChartArea,
+    faBell
 } from '@fortawesome/free-solid-svg-icons';
 
 function CourseStatus() {
@@ -10,31 +16,38 @@ function CourseStatus() {
 
       <div className="icon-buttons">
         <button type="button" className="btn btn-light icon-spacing">
-          <i className="fa fa-file grey-icon"></i> Import Existing Content
+        <FontAwesomeIcon icon={faFile} className="grey-icon float-start" />
+          Import Existing Content
         </button>
         <br/>
         <button type="button" className="btn btn-light icon-spacing">
-          <i className="fa fa-sign-out-alt grey-icon"></i> Import from Commons
+        <FontAwesomeIcon icon={faSignOutAlt} className="grey-icon float-start" />
+         Import from Commons
         </button>
         <br/>
         <button type="button" className="btn btn-light icon-spacing">
-          <i className="fa fa-podcast grey-icon"></i> Choose Home Page
+        <FontAwesomeIcon icon={faPodcast} className="grey-icon float-start" />
+            Choose Home Page
         </button>
         <br/>
         <button type="button" className="btn btn-light icon-spacing">
-          <i className="fa fa-chart-bar grey-icon"></i> View Course Stream
+        <FontAwesomeIcon icon={faChartBar} className="grey-icon float-start" />
+          View Course Stream
         </button>
         <br/>
         <button type="button" className="btn btn-light icon-spacing">
-          <i className="fa fa-bullhorn grey-icon"></i> New Announcement
+        <FontAwesomeIcon icon={faBullhorn} className="grey-icon float-start" />
+          New Announcement
         </button>
         <br/>
         <button type="button" className="btn btn-light icon-spacing">
-          <i className="fa fa-chart-area grey-icon"></i> New Analytics
+        <FontAwesomeIcon icon={faChartArea} className="grey-icon float-start" />
+          New Analytics
         </button>
         <br/>
         <button type="button" className="btn btn-light icon-spacing">
-          <i className="fa fa-bell grey-icon"></i> View Course Notifications
+        <FontAwesomeIcon icon={faBell} className="grey-icon float-start" />
+          View Course Notifications
         </button>
         <br/>
       </div>

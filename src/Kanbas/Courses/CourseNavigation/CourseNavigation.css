@@ -7,6 +7,12 @@
   width: 40%;
   border: none;
 }
+.icon-buttons .btn {
+  width: 100%; /* This will make each button take up the full width of its parent container. */
+  white-space: nowrap; /* Prevents the content inside the button from wrapping to the next line. */
+  overflow: hidden; /* Hides overflowed content. */
+  text-overflow: ellipsis; /* Adds an ellipsis when the content overflows. */
+}
 .breadcrumb-link {
   text-decoration: none;
   color: red; 
