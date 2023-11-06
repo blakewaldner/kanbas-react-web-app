@@ -24,6 +24,7 @@ function ModuleList() {
                 <br />
                 <textarea
                     class="form-control"
+                    
                     value={module.description}
                     onChange={(e) =>
                         dispatch(setModule({ ...module, description: e.target.value }))
