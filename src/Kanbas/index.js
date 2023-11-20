@@ -10,7 +10,8 @@ import axios from "axios";
 
 function Kanbas() {
   const [courses, setCourses] = useState([]);
-  const URL = "http://localhost:4000/api/courses";
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  const URL = `${API_BASE}/courses`;
   const deleteCourse = async (course_id) => {
     const response = await axios.delete(
       `${URL}/${course_id}`
