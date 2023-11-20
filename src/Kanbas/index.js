@@ -13,6 +13,7 @@ function Kanbas() {
   const API_BASE = process.env.REACT_APP_API_BASE;
   const URL = `${API_BASE}/api/courses`;
   
+  
   const deleteCourse = async (course_id) => {
     const response = await axios.delete(
       `${URL}/${course_id}`
