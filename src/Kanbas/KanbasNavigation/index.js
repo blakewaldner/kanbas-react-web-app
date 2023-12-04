@@ -10,7 +10,10 @@ import {
     faClock,
     faTv,
     faChevronCircleRight,
-    faQuestionCircle
+    faQuestionCircle,
+    faKey,
+    faUserPlus,
+    faUserLarge
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -18,14 +21,11 @@ function KanbasNavigation() {
     const { pathname } = useLocation();
 
     const links = [
-        { name: "Account", icon: faUserCircle, path: "profile" },
+        { name: "Account", icon: faUserCircle, path: "account" },
         { name: "Dashboard", icon: faTachometerAlt, path: "dashboard" },
         { name: "Courses", icon: faBook, path: "courses" },
-        { name: "Calendar", icon: faCalendar, path: "#" },
-        { name: "History", icon: faClock, path: "#" },
-        { name: "Studio", icon: faTv, path: "#" },
-        { name: "Commons", icon: faChevronCircleRight, path: "#" },
-        { name: "Help", icon: faQuestionCircle, path: "#" },
+        { name: "Sign In", icon: faKey, path: "signin" },
+        { name: "Sign Up", icon: faUserPlus, path: "signup" },
     ];
 
     return (
@@ -45,7 +45,7 @@ function KanbasNavigation() {
                     <FontAwesomeIcon
                         icon={link.icon}
                         className={
-                            link.name === "Account" ? (pathname.includes("profile") ? "grey-icon" : "") : "red-icon"
+                            link.name === "Account" ? ((pathname.includes("profile")||pathname.includes("account")) ? "grey-icon" : "") : "red-icon"
                         }
                         style={{ fontSize: "40px" }}
                     />
