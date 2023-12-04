@@ -11,6 +11,7 @@ function Signup() {
         try {
             const BASE_API = process.env.REACT_APP_BASE_API_URL;
             console.log(BASE_API)
+            console.log(credentials)
             await client.signup(credentials);
             navigate("/kanbas/account");
         } catch (err) {
