@@ -35,7 +35,6 @@ function UserTable() {
     };
     const updateUser = async () => {
         try {
-            
             const status = await client.updateUser(user);
             setUsers(users.map((u) => (u._id === user._id ? user : u)));
             setError('')
