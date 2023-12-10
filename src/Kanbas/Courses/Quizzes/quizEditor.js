@@ -74,7 +74,6 @@ function QuizEditor() {
         const updatedQuestions = [...quiz.questions];
         const updatedQuestion = { ...updatedQuestions[questionIndex] };
 
-        // Update or create the options array
         const updatedOptions = updatedQuestion.options || [];
         updatedOptions[optionIndex] = value;
         updatedQuestion.options = updatedOptions;
@@ -116,7 +115,7 @@ function QuizEditor() {
         };
         setQuiz({ ...quiz, questions: updatedQuestions });
     };
-    
+
     const addAnswerField = (questionIndex) => {
         const updatedQuestions = [...quiz.questions];
         const updatedCorrectAnswers = [...updatedQuestions[questionIndex].possibleAnswers, ''];
@@ -125,7 +124,7 @@ function QuizEditor() {
             possibleAnswers: updatedCorrectAnswers
         };
         setQuiz({ ...quiz, questions: updatedQuestions });
-    };    
+    };
     useEffect(() => {
         fetchQuiz();
     }, []);
@@ -318,9 +317,9 @@ function QuizEditor() {
                                                             className="form-control mb-2"
                                                             placeholder="Question"
                                                         />
-                                                         <label className="form-label" style={{ fontWeight: 'bold' }}>
-                                                                    Points
-                                                                </label>
+                                                        <label className="form-label" style={{ fontWeight: 'bold' }}>
+                                                            Points
+                                                        </label>
                                                         <input
                                                             type="number"
                                                             value={question.points}
@@ -406,7 +405,6 @@ function QuizEditor() {
                                                                             className="form-control"
                                                                             placeholder={`Possible Answer ${answerIndex + 1}`}
                                                                         />
-                                                                        {/* You can add a button to remove this answer if needed */}
                                                                     </div>
                                                                 ))}
                                                                 <button

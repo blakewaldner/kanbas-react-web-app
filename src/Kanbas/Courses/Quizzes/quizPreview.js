@@ -45,14 +45,13 @@ function QuizPreview() {
         }
         let score = 0;
         quiz.questions.forEach((question, index) => {
-            // You would need to add correctAnswer to your question object
             if (
                 answers[index] !== "" && ((answers[index] === question.correctAnswer) || 
                 (
                     ((question.type === "FILL-BLANK" && question.possibleAnswers.includes(answers[index])))
                 ))
             ) {
-                score += question.points; // Assuming each question has a 'points' value
+                score += question.points; 
             }
         });
         const total = quiz.questions.reduce((acc, question) => acc + question.points, 0)
@@ -67,7 +66,7 @@ function QuizPreview() {
         );
     };
     const renderQuestionInput = (question) => {
-        const answer = answers[currentQuestionIndex]; // Retrieve the current answer
+        const answer = answers[currentQuestionIndex];
 
         switch (question.type) {
             case 'MULTIPLE-CHOICE':
