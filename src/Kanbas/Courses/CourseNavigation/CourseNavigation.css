@@ -24,6 +24,9 @@
 .course-nav-item:hover {
   color: blue;
 }
+.width-max {
+  width: 100%
+}
 .no-underline-gray {
   text-decoration: none;
   color: #312f2f
@@ -41,7 +44,6 @@
   width: 4px;
   background-color: black;
 }
-
 .link-text {
   padding-left: 10px;
 }

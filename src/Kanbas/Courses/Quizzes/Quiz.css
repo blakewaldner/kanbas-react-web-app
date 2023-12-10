@@ -1,0 +1,58 @@
+.bold {
+    font-weight: bold;
+    font-size: 20px
+}
+
+.green-border {
+    border-left: 5px solid green;
+}
+
+.green-icon {
+    color: green
+}
+
+.no-underline-gray {
+    text-decoration: none;
+    color: #312f2f
+}
+
+
+.green-large-icon {
+    color: green;
+    font-size: 25px;
+}
+
+.large-icon {
+    font-size: 40px;
+}
+
+.unpublished {
+    opacity: 0.25
+}
+
+.published {
+    opacity: 1
+}
+
+.quiz-preview-container {
+    width: 95%
+}
+
+.quiz-preview-container .quiz-question {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.quiz-preview-container .quiz-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-preview-container .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
