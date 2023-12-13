@@ -18,12 +18,15 @@ function QuizPreview() {
     const [quiz, setQuiz] = useState(null);
     const navigate = useNavigate();
     const quizUrl = `/Kanbas/Courses/${courseId}/Quizzes/`;
+    const [timer, setTimer] = useState(null);
+    const [timeLeft, setTimeLeft] = useState(0);
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
     };
+
     const fetchQuiz = async () => {
         try {
             const fetchedQuiz = await client.findQuizById(quizId);
@@ -44,6 +47,7 @@ function QuizPreview() {
             setError(err.response.data.message);
         }
     };
+
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const handleAnswerChange = (index, value) => {
         setAnswers(prevAnswers => ({
@@ -100,32 +104,6 @@ function QuizPreview() {
                     </div>
                 ));
             case 'TRUE-FALSE':
-                // return (
-                //     <>
-                //         <div>
-                //             <input
-                //                 type="radio"
-                //                 id={`true-${currentQuestionIndex}`}
-                //                 name={`question-${currentQuestionIndex}`}
-                //                 value="True"
-                //                 checked={answer === "True"}
-                //                 onChange={() => handleAnswerChange(currentQuestionIndex, "True")}
-                //             />
-                //             <label htmlFor={`true-${currentQuestionIndex}`}>True</label>
-                //         </div>
-                //         <div>
-                //             <input
-                //                 type="radio"
-                //                 id={`false-${currentQuestionIndex}`}
-                //                 name={`question-${currentQuestionIndex}`}
-                //                 value="False"
-                //                 checked={answer === "False"}
-                //                 onChange={() => handleAnswerChange(currentQuestionIndex, "False")}
-                //             />
-                //             <label htmlFor={`false-${currentQuestionIndex}`}>False</label>
-                //         </div>
-                //     </>
-                // );
                 return (
                     <>
                         {question.options.map((option, idx) => (
@@ -162,6 +140,52 @@ function QuizPreview() {
     useEffect(() => {
         fetchQuiz();
     }, []);
+    const startTimer = () => {
+        console.log(quiz)
+        if (quiz.timed && quiz.timeLimit) {
+            setTimeLeft(quiz.timeLimit * 60);
+            const newTimer = setInterval(() => {
+                setTimeLeft((prevTime) => {
+                    if (prevTime <= 1) {
+                        clearInterval(newTimer);
+                        alert("Time is up!");
+                    }
+                    return prevTime - 1;
+                });
+            }, 1000);
+            setTimer(newTimer);
+        }
+    };
+    useEffect(() => {
+        if (timer) {
+            clearInterval(timer);
+        }
+        if (quiz && quiz.timed) {
+            setTimeLeft(quiz.timeLimit * 60); 
+            const newTimer = setInterval(() => {
+                setTimeLeft((prevTime) => {
+                    if (prevTime <= 1) {
+                        clearInterval(newTimer);
+                        alert("Time is up! Please submit now.");
+                    }
+                    return prevTime - 1;
+                });
+            }, 1000);
+            setTimer(newTimer);
+        } else {
+            setTimeLeft(0);
+        }
+        return () => {
+            if (timer) {
+                clearInterval(timer);
+            }
+        };
+    }, [quiz]);
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    };
     return (
         <div>
             <div className="quiz-preview-container">
@@ -184,6 +208,11 @@ function QuizPreview() {
                                 {renderQuestionInput(quiz.questions[currentQuestionIndex])}
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+                                {quiz.timed && (
+                                    <div>
+                                        Time left: <strong>{formatTime(timeLeft)}</strong>
+                                    </div>
+                                )}
                                 <button
                                     className="btn btn-secondary"
                                     onClick={goToPreviousQuestion}
