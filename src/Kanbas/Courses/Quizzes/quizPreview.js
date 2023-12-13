@@ -18,9 +18,26 @@ function QuizPreview() {
     const [quiz, setQuiz] = useState(null);
     const navigate = useNavigate();
     const quizUrl = `/Kanbas/Courses/${courseId}/Quizzes/`;
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
     const fetchQuiz = async () => {
         try {
             const fetchedQuiz = await client.findQuizById(quizId);
+            if (fetchedQuiz.shuffleAnswers) {
+                fetchedQuiz.questions.forEach(question => {
+                    if (question.type === 'MULTIPLE-CHOICE') {
+                        shuffleArray(question.options);
+                    }
+                    if (question.type === 'TRUE-FALSE') {
+                        question.options = ['True', 'False'];
+                        shuffleArray(question.options);
+                    }
+                });
+            }
             setQuiz(fetchedQuiz);
             setAnswers(fetchedQuiz.questions.reduce((acc, _, index) => ({ ...acc, [index]: '' }), {}));
         } catch (err) {
@@ -46,12 +63,12 @@ function QuizPreview() {
         let score = 0;
         quiz.questions.forEach((question, index) => {
             if (
-                answers[index] !== "" && ((answers[index] === question.correctAnswer) || 
-                (
-                    ((question.type === "FILL-BLANK" && question.possibleAnswers.includes(answers[index])))
-                ))
+                answers[index] !== "" && ((answers[index] === question.correctAnswer) ||
+                    (
+                        ((question.type === "FILL-BLANK" && question.possibleAnswers.includes(answers[index])))
+                    ))
             ) {
-                score += question.points; 
+                score += question.points;
             }
         });
         const total = quiz.questions.reduce((acc, question) => acc + question.points, 0)
@@ -83,30 +100,47 @@ function QuizPreview() {
                     </div>
                 ));
             case 'TRUE-FALSE':
+                // return (
+                //     <>
+                //         <div>
+                //             <input
+                //                 type="radio"
+                //                 id={`true-${currentQuestionIndex}`}
+                //                 name={`question-${currentQuestionIndex}`}
+                //                 value="True"
+                //                 checked={answer === "True"}
+                //                 onChange={() => handleAnswerChange(currentQuestionIndex, "True")}
+                //             />
+                //             <label htmlFor={`true-${currentQuestionIndex}`}>True</label>
+                //         </div>
+                //         <div>
+                //             <input
+                //                 type="radio"
+                //                 id={`false-${currentQuestionIndex}`}
+                //                 name={`question-${currentQuestionIndex}`}
+                //                 value="False"
+                //                 checked={answer === "False"}
+                //                 onChange={() => handleAnswerChange(currentQuestionIndex, "False")}
+                //             />
+                //             <label htmlFor={`false-${currentQuestionIndex}`}>False</label>
+                //         </div>
+                //     </>
+                // );
                 return (
                     <>
-                        <div>
-                            <input
-                                type="radio"
-                                id={`true-${currentQuestionIndex}`}
-                                name={`question-${currentQuestionIndex}`}
-                                value="True"
-                                checked={answer === "True"}
-                                onChange={() => handleAnswerChange(currentQuestionIndex, "True")}
-                            />
-                            <label htmlFor={`true-${currentQuestionIndex}`}>True</label>
-                        </div>
-                        <div>
-                            <input
-                                type="radio"
-                                id={`false-${currentQuestionIndex}`}
-                                name={`question-${currentQuestionIndex}`}
-                                value="False"
-                                checked={answer === "False"}
-                                onChange={() => handleAnswerChange(currentQuestionIndex, "False")}
-                            />
-                            <label htmlFor={`false-${currentQuestionIndex}`}>False</label>
-                        </div>
+                        {question.options.map((option, idx) => (
+                            <div key={idx}>
+                                <input
+                                    type="radio"
+                                    id={`${option.toLowerCase()}-${currentQuestionIndex}`}
+                                    name={`question-${currentQuestionIndex}`}
+                                    value={option}
+                                    checked={answer === option}
+                                    onChange={() => handleAnswerChange(currentQuestionIndex, option)}
+                                />
+                                <label htmlFor={`${option.toLowerCase()}-${currentQuestionIndex}`}>{option}</label>
+                            </div>
+                        ))}
                     </>
                 );
             case 'FILL-BLANK':

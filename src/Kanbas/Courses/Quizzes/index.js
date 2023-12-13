@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../Database";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,7 +17,7 @@ import { Dropdown } from 'react-bootstrap';
 
 function Quizzes() {
     const { courseId } = useParams();
-
+    const navigate = useNavigate();
     const [error, setError] = useState("");
     const [quizzes, setQuizzes] = useState([]);
     const [quiz, setQuiz] = useState({
@@ -31,13 +31,25 @@ function Quizzes() {
         dueDate: "2023-01-15",
         availableFrom: "2023-01-12",
         availableUntil: "2023-01-14",
-        questions: []
+        questions: [
+            {
+                title: "New Question Title",
+                type: "MULTIPLE-CHOICE",
+                question: "Question Description",
+                points: 75,
+                options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+                correctAnswer: "Answer 3",
+                possibleAnswers: ["", "", ""],
+            }
+        ]
     });
 
     const createQuiz = async () => {
         try {
             const newQuiz = await client.createQuiz(quiz);
             setQuizzes([newQuiz, ...quizzes]);
+            const url = `/Kanbas/Courses/${courseId}/Quizzes/${newQuiz._id}`;
+            navigate(url)
             setError('')
         } catch (err) {
             setError(err.response.data.message);

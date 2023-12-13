@@ -57,6 +57,16 @@ function QuizEditor() {
             console.error('Error deleting question:', error);
         }
     };
+    const removeAnswerField = (questionIndex, answerIndex) => {
+        const updatedQuiz = { ...quiz };
+        updatedQuiz.questions[questionIndex].possibleAnswers.splice(answerIndex, 1);
+        setQuiz(updatedQuiz);
+    };
+    const removeMCOptionField = (questionIndex, optionIndex) => {
+        const updatedQuiz = { ...quiz };
+        updatedQuiz.questions[questionIndex].options.splice(optionIndex, 1);
+        setQuiz(updatedQuiz);
+    };
     const saveAndPublish = async () => {
         const publishedQuiz = {
             ...quiz,
@@ -122,6 +132,15 @@ function QuizEditor() {
         updatedQuestions[questionIndex] = {
             ...updatedQuestions[questionIndex],
             possibleAnswers: updatedCorrectAnswers
+        };
+        setQuiz({ ...quiz, questions: updatedQuestions });
+    };
+    const addMCAnswerField = (questionIndex) => {
+        const updatedQuestions = [...quiz.questions];
+        const updatedCorrectAnswers = [...updatedQuestions[questionIndex].options, ''];
+        updatedQuestions[questionIndex] = {
+            ...updatedQuestions[questionIndex],
+            options: updatedCorrectAnswers
         };
         setQuiz({ ...quiz, questions: updatedQuestions });
     };
@@ -332,16 +351,32 @@ function QuizEditor() {
                                                                 <label className="form-label" style={{ fontWeight: 'bold' }}>
                                                                     Answer Choices
                                                                 </label>
-                                                                {Array.from({ length: 4 }).map((_, idx) => (
-                                                                    <input
-                                                                        key={idx}
-                                                                        type="text"
-                                                                        value={question.options[idx] || ''}
-                                                                        onChange={(e) => handleOptionChange(index, idx, e.target.value)}
-                                                                        className="form-control mb-2"
-                                                                        placeholder={`Option ${idx + 1}`}
-                                                                    />
+                                                                {Array.from({ length: question.options.length }).map((_, idx) => (
+                                                                    <div key={idx} className="mb-2 d-flex align-items-center">
+                                                                        <input
+                                                                            type="text"
+                                                                            value={question.options[idx] || ''}
+                                                                            onChange={(e) => handleOptionChange(index, idx, e.target.value)}
+                                                                            className="form-control"
+                                                                            placeholder={`Option ${idx + 1}`}
+                                                                        />
+                                                                        <button
+                                                                            type="button"
+                                                                            className="btn btn-outline-danger btn-sm ms-2"
+                                                                            onClick={() => removeMCOptionField(index, idx)}
+                                                                        >
+                                                                            X
+                                                                        </button>
+                                                                    </div>
                                                                 ))}
+                                                                <button
+                                                                    type="button"
+                                                                    className="btn btn-outline-secondary my-2"
+                                                                    onClick={() => addMCAnswerField(index)}
+                                                                >
+                                                                    + Add Another Choice
+                                                                </button>
+                                                                <br />
                                                                 <label className="form-label" style={{ fontWeight: 'bold' }}>
                                                                     Correct Answer
                                                                 </label>
@@ -397,7 +432,7 @@ function QuizEditor() {
                                                                     Answers:
                                                                 </label>
                                                                 {question.possibleAnswers.map((answer, answerIndex) => (
-                                                                    <div key={answerIndex} className="mb-2">
+                                                                    <div key={answerIndex} className="mb-2 d-flex align-items-center">
                                                                         <input
                                                                             type="text"
                                                                             value={answer}
@@ -405,6 +440,13 @@ function QuizEditor() {
                                                                             className="form-control"
                                                                             placeholder={`Possible Answer ${answerIndex + 1}`}
                                                                         />
+                                                                        <button
+                                                                            type="button"
+                                                                            className="btn btn-outline-danger btn-sm ms-2"
+                                                                            onClick={() => removeAnswerField(index, answerIndex)}
+                                                                        >
+                                                                            X
+                                                                        </button>
                                                                     </div>
                                                                 ))}
                                                                 <button
